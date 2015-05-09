@@ -27,6 +27,9 @@ bool test(string s1,string s2){
 //		
 //		
 //	}
+
+    if(j>s2.length()-1 && i<=s1.length()-1)
+    return false;
 	
      if(s1.at(i)!='*' && s1.at(i)!='?'){
 		
@@ -53,6 +56,12 @@ bool test(string s1,string s2){
 //		
 //		return true;
 //	}
+
+ else if(s1.at(i)=='?'){
+ 	
+ 	i++;
+ 	j++;
+ }
 	
 	else if(s1.at(i)=='*'){
 		
@@ -64,7 +73,9 @@ bool test(string s1,string s2){
 			i++;
 		}
 		
-	string sub1=s1.substr(k+1,k-i+1);
+		cout<<"NEW I"<<i<<" "<<"K"<<k<<endl;
+		
+	string sub1=s1.substr(k+1,i-k);
 	string sub2=s2.substr(j);
 	
 	cout<<"S1"<<sub1<<" "<<sub2<<" "<<i<<" "<<j<<endl;
@@ -102,9 +113,11 @@ int main(){
     //cout<<test("g*k", "gee");  --pass
       //cout<<test("*pqrs", "pqrst");-pass
      //cout<< test("abc*bcd", "abcdhghgbcd"); -pass
-   cout<<test("abc*c?d", "abcd"); 
-//    test("*c*d", "abcd"); 
-//    test("*?c*d", "abcd"); 
+   //cout<<test("abc*c?d", "abcd"); 
+     //cout<<test("*c*d", "abcd"); 
+     //cout<<test("*?c*d", "abcd"); 
+     cout<<test("abc?d","abcd");
+   //cout<<test("*abc*nbbc","aaabcjhjjhjhjhjjvgvmnbbc");
 	
 	
 	
