@@ -25,8 +25,8 @@ int lcs(string s1,string s2,int m,int n){
 
 int main(){
 	
-	string s1="GOEKSFORGEEKS";
-	string s2="GEKSQUIZ";
+	string s1="ABFM";
+	string s2="FBAM";
 	
 	int l=lcs(s1,s2,s1.length(),s2.length());
 	cout<<l<<endl;
