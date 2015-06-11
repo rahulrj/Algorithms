@@ -1,0 +1,97 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		graph g=new graph(4);
+		//g
+		 g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
+    
+    g.bfs(2);
+		
+		   
+	}
+	
+
+	
+	static class graph{
+		
+		int v;
+		HashMap<Integer,ArrayList<Integer>>list;
+		
+		public graph(int v){
+			
+			this.v=v;
+			this.list=new HashMap<Integer,ArrayList<Integer>>();
+			
+			for(int i=0;i<v;i++){
+				
+				list.put(i,new ArrayList<Integer>());
+			}
+		}
+		
+		public void addEdge(int u,int v){
+			
+			ArrayList<Integer>l=list.get(u);
+			l.add(v);
+		}
+		
+		
+		public void bfs(int s){
+			
+			
+			boolean visited[]=new boolean[v];
+			visited[s]=true;
+			
+			Queue q=new LinkedList();
+			q.add(s);
+			
+		//	ArrayList<Integer>l=list.get(s);
+			
+			//int value=l.get(0);
+			//q.add(value);
+			
+			
+			while(!q.isEmpty()){
+				
+				Integer val=(Integer)q.remove();
+				System.out.print(val+" ");
+				
+				ArrayList<Integer>listAtVal=list.get(val);
+				
+				for(int i=0;i<listAtVal.size();i++){
+					
+					if(!visited[listAtVal.get(i)]){
+						
+						visited[listAtVal.get(i)]=true;
+						q.add(listAtVal.get(i));
+						
+					}
+					
+				}
+				
+				
+				
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
+	}
+}

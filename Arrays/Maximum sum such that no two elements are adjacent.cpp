@@ -16,6 +16,7 @@ int calc(int a[],int start,int sum){
 	for(int i=2;i<5;i++) 
 	calc(a,start+i,sum);
 	
+	cout<<"x"<<endl;
 	return totalsum;
 	
 	
@@ -28,7 +29,7 @@ int calc(int a[],int start,int sum){
 int main() {
 
 
-    int a[]={3,2,5,20,7};
+    int a[]={3,25,5,20,7};
     int x=calc(a,0,0);
     cout<<"Total"<<x;
 	return 0;
