@@ -1,0 +1,33 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+			int t;
+		Scanner in=new Scanner(System.in);
+		t=Integer.parseInt(in.nextLine());
+		
+		for(int i=0;i<t;i++){
+			
+			String s[]=new String[2];
+			s=(in.nextLine()).split("\\s");
+			
+			BigInteger s1=new BigInteger(s[0]);
+			BigInteger s2=new BigInteger(s[1]);
+			
+			BigInteger s3=s1.multiply(s2);
+			
+			
+			System.out.println(s3.toString());
+			
+			
+			
+			
+			
+		}
+	}
+}
