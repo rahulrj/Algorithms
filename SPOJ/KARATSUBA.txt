@@ -1,0 +1,98 @@
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		
+		String ans=mul("1234","5678",4);
+		System.out.println(ans);
+		
+	}
+	
+	public static String add(String x,String y){
+	    
+	    int xlen=x.length();
+	    int ylen=y.length();
+	    
+	    long carry=0;
+	    
+	    x=xlen>=ylen?x:y;
+	    int diffLen=xlen-ylen;
+	    String yapp="";
+	    String ans="";
+	    
+	    for(int i=1;i<=diffLen;i++){
+	        yapp+="0";
+	    }
+	    if(diffLen>0)
+	    y=yapp+y;
+	    
+	    //System.out.println("x"+y);
+	    
+	    long u;
+	 
+	    for(int i=xlen-1;i>=1;i--){
+	        
+	        u=(x.charAt(i)-'0')+(y.charAt(i)-'0')+carry;
+	        long rem=u%10;
+	        ans+=rem;
+	        carry=u/10;
+	    }
+	    
+	    u=(x.charAt(0)-'0')+(y.charAt(0)-'0')+carry;
+	    ans+=u;
+	    
+	    if(x.length()==1)
+	    return ans;
+	    else
+	    return new StringBuffer(ans).reverse().toString();
+	    
+	    
+	}
+	
+	
+	public static String mul10(String n,int pow){
+	    
+	    //String ans="";
+	    for(int i=0;i<pow;i++){
+	        n+="0";
+	    }
+	    return n;
+	}
+	
+   public static String mul(String x,String y,int n){
+	
+   if(n==1){
+       int m=Integer.parseInt(x)*Integer.parseInt(y);
+   	return String.valueOf(m);
+   }	
+   
+   //string xx=;
+   
+   String a=x.substring(0,x.length()/2);
+   String b=x.substring(x.length()/2,x.length());
+   
+   String c=y.substring(0,y.length()/2);
+   String d=y.substring(y.length()/2,y.length());
+  
+   
+	
+   String ac=mul(a,c,n/2);
+   String bd=mul(b,d,n/2);
+   
+   String ad=mul(a,d,n/2);
+   String bc=mul(b,c,n/2);
+   
+   //System.out.println(mul10(add(ad,bc),1));
+   //System.out.println(add(ad,bc));
+   
+   String ans=add(mul10(ac,n),add(mul10(add(ad,bc),n/2),bd));
+   return ans;
+   
+   //return pow(10,n)*ac+pow(10,n/2)*(ad+bc)+bd;
+   //return 0;
+   
+   
+   
+   
+}
+}
