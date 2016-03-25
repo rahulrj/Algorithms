@@ -3,19 +3,28 @@ import java.io.*;
 class GFG {
 	public static void main (String[] args) {
 		
-		String ans=mul("1234","5678",4);
+		
+		int n=8;
+		int po=n%2==0?n:n+1;
+		String ans=mul("12345","12345",5);
 		System.out.println(ans);
 		
 	}
 	
 	public static String add(String x,String y){
 	    
-	    int xlen=x.length();
-	    int ylen=y.length();
-	    
 	    long carry=0;
 	    
-	    x=xlen>=ylen?x:y;
+	    if(x.length()<y.length()){
+	        String temp=y;
+	        y=x;
+	        x=temp;
+	    }
+	    
+	     int xlen=x.length();
+	    int ylen=y.length();
+	    
+	    //x=xlen>=ylen?x:y;
 	    int diffLen=xlen-ylen;
 	    String yapp="";
 	    String ans="";
@@ -26,7 +35,7 @@ class GFG {
 	    if(diffLen>0)
 	    y=yapp+y;
 	    
-	    //System.out.println("x"+y);
+	    //System.out.println("x"+x+" "+y);
 	    
 	    long u;
 	 
@@ -39,7 +48,9 @@ class GFG {
 	    }
 	    
 	    u=(x.charAt(0)-'0')+(y.charAt(0)-'0')+carry;
-	    ans+=u;
+	    String ustring=String.valueOf(u);
+	    String urev=new StringBuffer(ustring).reverse().toString();
+	    ans+=urev;
 	    
 	    if(x.length()==1)
 	    return ans;
@@ -68,12 +79,18 @@ class GFG {
    
    //string xx=;
    
-   String a=x.substring(0,x.length()/2);
-   String b=x.substring(x.length()/2,x.length());
-   
-   String c=y.substring(0,y.length()/2);
-   String d=y.substring(y.length()/2,y.length());
+   int xlen,ylen;
+      xlen=x.length()/2;
+      ylen=y.length()/2;
   
+   
+   String a=x.substring(0,xlen);
+   String b=x.substring(xlen,x.length());
+   
+   String c=y.substring(0,ylen);
+   String d=y.substring(ylen,y.length());
+  
+   
    
 	
    String ac=mul(a,c,n/2);
@@ -82,10 +99,13 @@ class GFG {
    String ad=mul(a,d,n/2);
    String bc=mul(b,c,n/2);
    
-   //System.out.println(mul10(add(ad,bc),1));
-   //System.out.println(add(ad,bc));
+   int po=n%2==0?n:n+1;
    
-   String ans=add(mul10(ac,n),add(mul10(add(ad,bc),n/2),bd));
+   System.out.println(ac+" "+bd+" "+ad+" "+bc+" "+n);
+   System.out.println("Add"+mul10(add(ad,bc),po/2));
+   
+   String ans=add(mul10(ac,po),add(mul10(add(ad,bc),po/2),bd));
+   System.out.println("ans"+n+" "+ans);
    return ans;
    
    //return pow(10,n)*ac+pow(10,n/2)*(ad+bc)+bd;
