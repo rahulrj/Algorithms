@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	
+
+	//int i=0;
+	//long long int sum=0;
+	
+	while(1){
+		
+		int n;
+		cin>>n;
+		if(n==-1)
+		 break;
+		 
+		int a[10001];
+		long long int sum=0;
+		long long int ans=0;
+		
+		for(int i=0;i<n;i++){
+		cin>>a[i];
+		sum+=a[i];
+		}
+		
+		if(sum%n!=0){
+		  cout<<"-1"<<endl;
+     	}
+	   else{
+		
+		long long int mean=sum/n;
+		for(int i=0;i<n;i++){
+			
+			if(a[i]<mean){
+				ans+=(mean-a[i]);
+			}
+		}
+		
+		cout<<ans<<endl;
+	}
+	
+		
+	}
+	
+	
+	
+	return 0;
+}
