@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+
+    while(1){
+        
+        
+    string s;
+    int n;
+    
+    cin>>n;
+    if(n==0){
+        break;
+    }
+    
+    cin>>s;
+    
+    string ans="";
+    //int n=3;
+    
+    int diff=2*n;
+    int start=0;
+    int i=start;
+    
+    int count2=1;
+    int count1=2*n-1;
+    
+    int flag=0;
+    
+    while(1){
+        
+        if(start>n-1)
+        break;
+        
+        //cout<<i<<s[i]<<endl;
+        
+        ans+=s[i];
+        if(flag==0)
+          i+=count1;
+        else
+          i+=count2;
+          
+        if(i>=s.length()){
+          i=start+1;
+          start+=1;
+          
+          count1-=2;
+          count2+=2;
+          flag=0;
+         
+          continue;
+        }
+          
+          
+        if(flag==0)
+          flag=1;
+        else
+          flag=0;
+          
+          
+        
+    }
+    
+    cout<<ans<<endl;
+    }
+    
+    
+	return 0;
+}
