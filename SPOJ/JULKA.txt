@@ -1,0 +1,39 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//long startTime = System.nanoTime();
+		Scanner in=new Scanner(System.in);
+		for(int i=0;i<10;i++){
+			
+			String tot;
+			String mor;
+			
+			tot=in.nextLine();
+			
+			BigInteger total=new BigInteger(tot);
+			mor=in.nextLine();
+			BigInteger more=new BigInteger(mor);
+			
+			BigInteger sum=total.add(more);
+			
+			BigInteger klaud=sum.divide(new BigInteger("2"));
+			BigInteger nat=total.subtract(klaud);
+			
+			System.out.println(klaud);
+			System.out.println(nat);
+			
+			
+		}
+	//	long stopTime = System.nanoTime();
+		//System.out.println((stopTime - startTime)/1000000);
+	}
+}
