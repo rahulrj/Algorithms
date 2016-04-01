@@ -24,9 +24,7 @@ string add(string inputNum1,string inputNum2){
       tempSum+=CHAR_TO_INT(inputNum2[i]);
     }
     tempSum+=carry;
-    int carry=tempSum/10;
-
-
+    carry=tempSum/10;
     result+=(tempSum%10);
   }
 
