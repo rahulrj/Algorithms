@@ -6,7 +6,7 @@ using namespace std;
 #define CHAR_TO_INT(X) X-'0'
 #define INT_TO_CHAR(X) X+'0'
 
-
+// Didn't handle the case when numbers have negative sign
 string add(string inputNum1,string inputNum2){
   long long int input1Len=inputNum1.length();
   long long int input2Len=inputNum2.length();
@@ -70,6 +70,57 @@ string add(string inputNum1,string inputNum2){
   }
 
   result=std::to_string(tempSum)+result;
+
+
+  return result;
+}
+
+// Didnt handle the case when the first number has greater magnitude
+string subtract(string inputNum1,string inputNum2){
+  long long int input1Len=inputNum1.length();
+  long long int input2Len=inputNum2.length();
+
+  if(input1Len==0)
+  return inputNum2;
+
+  if(input2Len==0)
+  return inputNum1;
+
+  string result="";
+  bool carryFromPrev=false;
+
+  int i=input1Len-1;
+  int j=input2Len-1;
+
+  while(i>=0 || j>=0){
+     int firstVal=0,secondVal=0;
+     if(i>=0){
+     firstVal=CHAR_TO_INT(inputNum1[i]);
+     }
+     if(j>=0){
+     secondVal=CHAR_TO_INT(inputNum2[j]);
+     }
+
+     if(carryFromPrev){
+         firstVal-=1;
+     }
+
+     if(firstVal<secondVal){
+         firstVal+=10;
+         carryFromPrev=true;
+     }
+     else{
+          carryFromPrev=false;
+     }
+
+     int res=firstVal-secondVal;
+     result=(char)(INT_TO_CHAR(res))+result;
+
+     i-=1;
+     j-=1;
+
+  }
+
 
 
   return result;
