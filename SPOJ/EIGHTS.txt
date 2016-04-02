@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long long int t;
+	cin>>t;
+	
+	int arr[4];
+	arr[0]=942;
+	arr[1]=192;
+	arr[2]=442;
+	arr[3]=692;
+	
+	for(int i=0;i<t;i++){
+		long long int n;
+		cin>>n;
+		
+		int rem=n%4;
+		long long int quo=(n/4);
+		if(n%4==0)
+		quo=quo-1;
+		
+		string quos,rems;
+		
+		if(quo>0)
+		quos=std::to_string(quo);
+		rems=std::to_string(arr[rem]);
+		
+		cout<<(quos+rems)<<endl;
+		
+		
+		
+	}
+	
+	return 0;
+}
