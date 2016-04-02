@@ -1,0 +1,25 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	int n;
+	cin>>n;
+	
+	long long int sum=n;
+	
+	for(int i=2;i<=sqrt(n);i++){
+		long long int j=i*i;
+		
+		for(long long int k=j;k<=n;k+=i){
+			sum+=1;
+		}
+		
+	}
+	cout<<sum<<endl;
+
+	return 0;
+}
