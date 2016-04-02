@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int main() {
+
+	float n;
+	while(1){
+	    
+	    cin>>n;
+	    float res=0;
+	    if(n==0.00f)
+	     break;
+	     
+	    for(int i=2;;i++){
+	        
+	        res+=(1.0/i);
+	        if(res>=n){
+	            cout<<i-1<<" "<<"card(s)"<<endl;
+	            break;
+	        }
+	    }
+	}
+	
+	return 0;
+}
