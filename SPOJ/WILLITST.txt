@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	
+	long long int n;
+	cin>>n;
+	
+		//cout<<(n&(n-1))<<endl;
+
+	
+	if((n <= 1) || ((n & (n-1)) == 0)){
+	    cout<<"TAK"<<endl;
+	}else{
+	    cout<<"NIE"<<endl;
+	}
+	
+	//cout<<(n&(n-1))<<endl;
+	
+	return 0;
+}
