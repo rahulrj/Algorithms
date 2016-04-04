@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int t;
+	cin>>t;
+	
+	for(int i=0;i<t;i++){
+	    int n;
+	    cin>>n;
+	    
+	    long long int counter=1;
+	    long long int sum=0;
+	    
+	    while(true){
+	        sum=sum+counter;
+	        
+	        
+	        if(sum>=n){
+	            break;
+	        }
+	        counter+=1;
+	    }
+	    
+	    //cout<<sum<<endl;
+	    int fromtop=0,frombot=0;
+	    long long int lastsum=sum-counter;
+	    //cout<<lastsum<<endl;
+	    if(counter%2==0){
+	        fromtop=n-lastsum;
+	        frombot=counter-fromtop+1;
+	    }
+	    else{
+	        
+	        frombot=n-lastsum;
+	        fromtop=counter-frombot+1;
+	    }
+	    
+	    
+	    cout<<"TERM"<<" "<<n<<" "<<"IS"<<" "<<fromtop<<"/"<<frombot<<endl;
+	    
+	}
+	
+	
+	return 0;
+}
