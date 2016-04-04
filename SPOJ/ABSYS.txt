@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string> 
+#include <ctype.h>
+// std::string, std::stoi
+
+using namespace std;
+
+int main() {
+	
+	string tt;
+	getline(cin,tt);
+	
+	int t=stoi(tt);
+	
+	//cout<<t<<endl;
+	for(int i=0;i<t;i++){
+	    
+	    string blank,s;
+	    getline(cin,blank);
+	    
+	    getline(cin,s);
+	    
+	    string a,b,c;
+	    string temp;
+	    bool aa=false,bb=false,cc=false;
+	    bool plusen=false,equalen=false;
+	    for(int j=0;j<s.length();j++){
+	        
+	        
+	        if(s[j]=='+'){
+	            plusen=true;
+	            a=temp;
+	            temp="";
+	            continue;
+	        }
+	        if(s[j]=='='){
+	            equalen=true;
+	            b=temp;
+	            temp="";
+	            continue;
+	        }
+	        
+	        if(s[j]==' '){
+	            continue;
+	        }
+	        
+	        temp+=s[j];
+	        
+	        if(j==s.length()-1){
+	            c=temp;
+	            temp="";
+	        }
+	        
+	        if(isalpha(s[j])){
+	            
+	            if(!plusen){
+	                aa=true;
+	            }
+	            if(plusen && !equalen){
+	                bb=true;
+	            }
+	             if(plusen && equalen){
+	                 cc=true;
+	             }
+	           
+	        }
+	        
+	    }
+	    
+	    int aint=0;
+	    int bint=0;
+	    int cint=0;
+	    
+	    //cout<<a<<" "<<b<<" "<<c<<endl;
+	    //cout<<aa<<" "<<bb<<" "<<cc<<endl;
+	    
+	    if(!aa)
+	    aint=stoi(a);
+	    
+	    if(!bb)
+	    bint=stoi(b);
+	    
+	    if(!cc)
+	    cint=stoi(c);
+	    
+	    
+	    string res="";
+	    if(aa){
+	        int dint=cint-bint;
+	        res=std::to_string(dint)+" "+"+"+" "+b+" "+"="+" "+c;
+	    }
+	    
+	    if(bb){
+	        int dint=cint-aint;
+	        res=a+" "+"+"+" "+std::to_string(dint)+" "+"="+" "+c;
+	        
+	    }
+	    
+	    if(cc){
+	        
+	        int dint=aint+bint;
+	        res=a+" "+"+"+" "+b+" "+"="+" "+std::to_string(dint);
+
+	        
+	    }
+	    
+	    cout<<res<<endl;
+	}
+	
+	return 0;
+}
