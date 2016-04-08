@@ -1,0 +1,55 @@
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int main() {
+	
+	int t;
+	cin>>t;
+	
+	for(int i=0;i<t;i++){
+	    
+	    int wants;
+	    int frnds;
+	    
+	    cin>>wants>>frnds;
+	    int *frndsmon=new int[frnds];
+	    
+	    for(int j=0;j<frnds;j++)
+	    cin>>frndsmon[j];
+	    
+	    sort(frndsmon,frndsmon+frnds,std::greater<int>());
+	    int count=0;
+	    long long int sum=0;
+	    bool flag=false;
+	    
+	    for(int k=0;k<frnds;k++){
+	        sum+=frndsmon[k];
+	        count+=1;
+	        
+	        //cout<<sum<<endl;
+	        
+	        if(sum>=wants){
+	            cout<<"Scenario"<<" "<<"#"<<i+1<<":"<<endl;
+	            cout<<count<<endl;
+	            cout<<endl;
+	            flag=true;
+	        break;
+	        }
+	        
+	        
+	    }
+	    
+	    if(!flag){
+	    cout<<"Scenario"<<" "<<"#"<<i+1<<":"<<endl;
+	            cout<<"impossible"<<endl;
+	            cout<<endl;
+	    }
+	    
+	    
+	    
+	}
+	
+	
+	return 0;
+}
