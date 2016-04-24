@@ -1,0 +1,77 @@
+#include <iostream>
+using namespace std;
+
+int* convertIntToIntArray(int a){  
+    int* x=new int[5]();
+    int count=4;   
+    while(a>0){
+        x[count]=a%10;
+        a=a/10;
+        count-=1;
+    }  
+    return x;
+}
+int findMod(int* a,int b,int n){
+    int divi=0;
+    int i=0;
+    int rem=0; 
+    while(a[i]==0){
+        i+=1;
+    }
+    
+    while(i<n){
+    while(divi<b && i<n){
+        divi=divi*10+a[i];
+        i+=1;
+    }
+    
+    rem=divi%b;
+    divi=rem;
+    continue;
+    }
+    rem=divi%b;
+    return rem;
+}
+int* gcd(int* a,int b,int n){
+      if (b==0)
+		return a;
+	else{
+	    int* x=new int[5];
+	    x=convertIntToIntArray(b);
+	    int rem=findMod(a,b,n);
+	    return gcd(x,rem,5);
+	}
+}
+int main() {
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++){
+	    int a;
+	    string b;
+	    cin>>a>>b;  
+	    if(a==0){
+	     cout<<b<<endl;
+	     continue;
+	    }     
+	    if(b=="0"){
+	    cout<<a<<endl;
+	    continue;
+	    }    
+	    int *bc=new int[b.length()];
+	    for(int j=0;j<b.length();j++){
+	        bc[j]=b[j]-'0';
+	    }
+	    
+	    int *ans;
+	    ans=gcd(bc,a,b.length());    
+	    int kk=0;
+	    while(ans[kk]==0)
+	    kk+=1;
+	    
+	    while(kk<5){
+	      cout<<ans[kk++];
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
